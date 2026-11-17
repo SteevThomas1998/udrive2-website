@@ -7,25 +7,27 @@
 <meta name="description" content="How UDrive2 School of Motoring uses the details you send through the website.">
 <meta name="theme-color" content="#151617">
 <meta name="robots" content="noindex">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#F3F1EA;--ink:#151617;--muted:#55585B;--muted-on-ink:#A9ABA6;--lime:#C6F432;--rule:rgba(21,22,23,.14);--display:"Archivo",Arial,sans-serif;--body:"Instrument Sans",Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+:root{--paper:#F3F1EA;--ink:#151617;--muted:#55585B;--muted-on-ink:#A9ABA6;--accent:#DA2D29;--accent-hi:#FF6B63;--rule:rgba(21,22,23,.14);--display:"Archivo",Arial,sans-serif;--body:"Instrument Sans",Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--lime);outline-offset:3px;box-shadow:0 0 0 6px rgba(21,22,23,.85);border-radius:4px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;box-shadow:0 0 0 6px rgba(21,22,23,.85);border-radius:4px}
 .top{background:var(--ink);color:var(--paper)}
 .top__in{max-width:860px;margin:0 auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.logo{display:block;line-height:0}.logo img{height:48px;width:auto}
 .brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;color:var(--paper)}
 .brand svg{width:38px;height:38px}
 .brand__type{display:flex;flex-direction:column;line-height:1}
 .brand__word{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:21px;letter-spacing:-.035em}
-.brand__word sup{font-size:.56em;line-height:0;vertical-align:.8em;color:var(--lime)}
+.brand__word sup{font-size:.56em;line-height:0;vertical-align:.8em;color:var(--accent)}
 .brand__sub{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-on-ink);margin-top:5px}
-.back{font-size:15px;color:var(--lime);text-decoration:none;font-weight:600}
+.back{font-size:15px;color:var(--accent-hi);text-decoration:none;font-weight:600}
 main{max-width:860px;margin:0 auto;padding:64px 24px 96px}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
 h1{font-family:var(--display);font-stretch:120%;font-weight:800;letter-spacing:-.04em;line-height:.95;font-size:clamp(2.6rem,7vw,4.4rem);margin:0 0 20px}
@@ -38,7 +40,7 @@ ul{padding-left:20px}
 <body>
 <header class="top">
   <div class="top__in">
-    <a class="brand" href="index.html" aria-label="UDrive2 School of Motoring — home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#C6F432"/><path d="M8.5 28 13.8 5.5h4.4L23.5 28Z" fill="#151617"/><path d="M16 8.5v2.6M16 14.3v3.6M16 21.3v4.6" stroke="#F3F1EA" stroke-width="1.8" stroke-linecap="round"/></svg><span class="brand__type"><span class="brand__word">UDrive<sup>2</sup></span><span class="brand__sub">School of Motoring</span></span></a>
+    <a class="logo" href="index.html" aria-label="UDrive2 School of Motoring — home"><img src="assets/udrive2-logo.webp" alt="UDrive2 School of Motoring" width="520" height="269"></a>
     <a class="back" href="index.html">← Back to the site</a>
   </div>
 </header>
