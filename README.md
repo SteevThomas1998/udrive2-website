@@ -26,4 +26,4 @@ Until `endpoint` is set, the form prepares a text message to 07843 449 667 inste
 - **Areas:** only Oldham and Ashton-under-Lyne are listed. Add confirmed towns to the list (and pins to the map).
 
 ## Credits
-Stock photography via [Unsplash](https://unsplash.com) (Unsplash Licence): takahiro taguchi, Hari Perisetla, Agamveer Singh, Zoltan Tasi, Ben Elliott, Holiday Extras, Stephan Mahlke, Bas Peperzak, Ian Cylkowski, Chloë Forbes-Kindlen.
+Stock photography via [Unsplash](https://unsplash.com) (Unsplash Licence): takahiro taguchi, Hari Perisetla, Agamveer Singh, Zoltan Tasi, Ben Elliott, Holiday Extras, Stephan Mahlke, Bas Peperzak, Ian Cylkowski, Chloë Forbes-Kindlen, Patrycja Olszak, Waldemar Brandt, Alicia Christin Gerald, James Read, why kei, Andraz Lazic, William V, Jan Baborák, Mehrdad Jiryaee.
