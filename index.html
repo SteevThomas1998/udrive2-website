@@ -256,7 +256,7 @@ section{position:relative}
 .accred__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .accred__item{display:flex;align-items:center;gap:18px;padding:20px 22px;border:1px solid var(--rule);border-radius:var(--radius);background:#fff;transition:border-color .3s,transform .4s var(--ease-out)}
 .accred__item:hover{border-color:var(--ink);transform:translateY(-2px)}
-.accred__logo{flex:none;height:56px;width:auto;max-width:120px;object-fit:contain}
+.accred__logo{flex:none;height:72px;width:auto;max-width:90px;object-fit:contain}
 .accred__logo[hidden]{display:none!important}
 .accred__item strong{display:block;font-family:var(--display);font-stretch:110%;font-weight:700;font-size:17px;letter-spacing:-.01em;line-height:1.2;color:var(--ink)}
 .accred__item span{display:block;margin-top:6px;font-size:14px;color:var(--muted);line-height:1.4}
@@ -749,12 +749,12 @@ fieldset.field legend{margin-bottom:10px}
           <ul class="accred__list">
             <li class="accred__item">
               <!-- Official DVSA ADI logo: save the artwork DVSA issues to Farooq as assets/dvsa-adi-logo.png and it appears automatically -->
-              <img class="accred__logo" src="assets/dvsa-adi-logo.png" alt="DVSA Approved Driving Instructor logo" height="56" hidden onload="this.hidden=false" decoding="async">
+              <img class="accred__logo" src="assets/dvsa-adi-logo.png" alt="DVSA Approved Driving Instructor logo" height="72" hidden onload="this.hidden=false" decoding="async">
               <div><strong>DVSA Approved Driving Instructor</strong><span>Qualified and registered with the Driver and Vehicle Standards Agency</span></div>
             </li>
             <li class="accred__item">
               <!-- Official Pass Plus logo: save as assets/pass-plus-logo.png and it appears automatically -->
-              <img class="accred__logo" src="assets/pass-plus-logo.png" alt="Pass Plus logo" height="56" hidden onload="this.hidden=false" decoding="async">
+              <img class="accred__logo" src="assets/pass-plus-logo.png" alt="Pass Plus logo" height="72" hidden onload="this.hidden=false" decoding="async">
               <div><strong>Pass Plus Registered Instructor</strong><span>Registered to deliver the DVSA Pass Plus course for newly qualified drivers</span></div>
             </li>
           </ul>
