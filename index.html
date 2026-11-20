@@ -251,6 +251,18 @@ section{position:relative}
 .photo figcaption{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;color:var(--paper);font-size:11px;display:flex;gap:10px;align-items:center}
 .photo figcaption::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--accent)}
 .trust__photo{margin-top:34px;aspect-ratio:16/11}
+.accred{margin-top:clamp(40px,4.5vw,60px)}
+.accred__k{display:block;color:var(--muted);font-size:11px;margin:0 0 16px}
+.accred__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.accred__item{display:flex;align-items:center;gap:18px;padding:20px 22px;border:1px solid var(--rule);border-radius:var(--radius);background:#fff;transition:border-color .3s,transform .4s var(--ease-out)}
+.accred__item:hover{border-color:var(--ink);transform:translateY(-2px)}
+.accred__logo{flex:none;height:56px;width:auto;max-width:120px;object-fit:contain}
+.accred__logo[hidden]{display:none!important}
+.accred__item strong{display:block;font-family:var(--display);font-stretch:110%;font-weight:700;font-size:17px;letter-spacing:-.01em;line-height:1.2;color:var(--ink)}
+.accred__item span{display:block;margin-top:6px;font-size:14px;color:var(--muted);line-height:1.4}
+.accred__item strong::before{content:"";display:inline-block;width:8px;height:8px;margin-right:10px;border-radius:50%;background:var(--accent);vertical-align:.12em}
+.accred__item:has(.accred__logo:not([hidden])) strong::before{display:none}
+@media (max-width:640px){.accred__list{grid-template-columns:1fr}}
 @media (max-height:860px){.trust__intro{position:static}}
 
 /* ==========================================================================
@@ -437,6 +449,8 @@ section{position:relative}
 .contact{display:grid;gap:30px}
 .contact__name{margin:0 0 6px;font-family:var(--display);font-stretch:115%;font-weight:700;font-size:20px;letter-spacing:-.02em;color:var(--accent-hi)}
 .contact__tel{font-family:var(--display);font-stretch:120%;font-weight:800;font-size:clamp(2rem,3.6vw,3rem);letter-spacing:-.03em;text-decoration:none;line-height:1;display:inline-block;border-bottom:3px solid var(--accent);padding-bottom:8px}
+.contact__email{display:table;margin-top:18px;font-size:17px;font-weight:500;color:var(--paper);text-decoration:none;border-bottom:1px solid rgba(243,241,234,.35);padding-bottom:2px;word-break:break-all;transition:color .25s,border-color .25s}
+.contact__email:hover{color:var(--accent-hi);border-color:var(--accent-hi)}
 .contact dl{margin:0;display:grid;gap:0}
 .contact dl div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--rule-ink);font-size:15.5px}
 .contact dt{color:var(--muted-on-ink)}
@@ -690,13 +704,14 @@ fieldset.field legend{margin-bottom:10px}
             <figcaption class="mono">Lesson one starts at your door</figcaption>
           </figure>
         </div>
+        <div class="trust__body">
         <ol class="creds">
           <li class="cred reveal">
             <span class="cred__n" aria-hidden="true">01</span>
             <div>
               <span class="cred__k mono">Qualified</span>
-              <h3 class="h3">A DVSA-approved instructor</h3>
-              <p>Every lesson is taught by a fully qualified Approved Driving Instructor.</p>
+              <h3 class="h3">A DVSA Approved Driving Instructor</h3>
+              <p>Every lesson is taught by a fully qualified Approved Driving Instructor, who is also a registered Pass Plus instructor.</p>
             </div>
             <div class="readout" aria-hidden="true"><span class="readout__v">ADI ✓</span><span class="readout__k">DVSA approved</span></div>
           </li>
@@ -728,6 +743,23 @@ fieldset.field legend{margin-bottom:10px}
             <div class="readout" aria-hidden="true"><span class="readout__v">MOCK ✓</span><span class="readout__k">Pre-test check</span></div>
           </li>
         </ol>
+
+        <div class="accred reveal" style="--d:.1">
+          <p class="accred__k mono">Accreditation</p>
+          <ul class="accred__list">
+            <li class="accred__item">
+              <!-- Official DVSA ADI logo: save the artwork DVSA issues to Farooq as assets/dvsa-adi-logo.png and it appears automatically -->
+              <img class="accred__logo" src="assets/dvsa-adi-logo.png" alt="DVSA Approved Driving Instructor logo" height="56" hidden onload="this.hidden=false" decoding="async">
+              <div><strong>DVSA Approved Driving Instructor</strong><span>Qualified and registered with the Driver and Vehicle Standards Agency</span></div>
+            </li>
+            <li class="accred__item">
+              <!-- Official Pass Plus logo: save as assets/pass-plus-logo.png and it appears automatically -->
+              <img class="accred__logo" src="assets/pass-plus-logo.png" alt="Pass Plus logo" height="56" hidden onload="this.hidden=false" decoding="async">
+              <div><strong>Pass Plus Registered Instructor</strong><span>Registered to deliver the DVSA Pass Plus course for newly qualified drivers</span></div>
+            </li>
+          </ul>
+        </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1043,12 +1075,14 @@ fieldset.field legend{margin-bottom:10px}
             <figcaption class="mono">The open road is closer than you think</figcaption>
           </figure>
           <div>
-            <p class="mono" style="color:var(--muted-on-ink);margin:0 0 14px">Call or text your instructor</p>
-            <p class="contact__name">Mr. Farooq</p>
-            <a class="contact__tel" href="tel:+447843449667" aria-label="Call Mr. Farooq on 07843 449 667">07843 449 667</a>
+            <p class="mono" style="color:var(--muted-on-ink);margin:0 0 14px">Call, text or email your instructor</p>
+            <p class="contact__name">Farooq Afzal</p>
+            <a class="contact__tel" href="tel:+447843449667" aria-label="Call Farooq Afzal on 07843 449 667">07843 449 667</a>
+            <a class="contact__email" href="mailto:Farooqudrive2@hotmail.co.uk">Farooqudrive2@hotmail.co.uk</a>
           </div>
           <dl>
-            <div><dt>Instructor</dt><dd>Mr. Farooq · DVSA-approved</dd></div>
+            <div><dt>Instructor</dt><dd>Farooq Afzal</dd></div>
+            <div><dt>Accreditation</dt><dd>DVSA Approved Driving Instructor<br>Pass Plus Registered Instructor</dd></div>
             <div><dt>Areas</dt><dd>Oldham &amp; Ashton-under-Lyne</dd></div>
             <div><dt>Lessons</dt><dd>Daytime, evenings &amp; weekends</dd></div>
           </dl>
