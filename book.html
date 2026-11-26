@@ -434,6 +434,8 @@
   const plan = q.get('plan'), type = q.get('type');
   const tick = v => { const i = $(`input[name="kind"][value="${v}"]`, f); if (i) i.checked = true; };
   if (plan) { const k = plan === 'starter' ? 'payg' : plan; tick(k); chosen = k; form.lesson.value = k; }
+  if (q.get('instructor') === 'female') f.instructor.value = 'Female instructor';
+  if (q.get('instructor') === 'male') f.instructor.value = 'Male instructor';
   if (type === 'manual') f.gearbox.value = 'Manual';
   if (type === 'automatic') f.gearbox.value = 'Automatic';
   if (type === 'intensive' || type === 'refresher') tick(type);

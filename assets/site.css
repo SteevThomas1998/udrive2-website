@@ -635,3 +635,32 @@ button.fchip-btn[aria-pressed="true"]{background:var(--ink);color:var(--paper);b
   .page-hero__grid{grid-template-columns:1fr;gap:22px}
 }
 @media (max-width:920px){.hero .eyebrow{margin-bottom:26px!important}}
+
+/* ==========================================================================
+   Female instructor — hero badge + full-width band
+   ========================================================================== */
+.hero__badge{grid-column:1 / -1;justify-self:start;display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:6px 6px 6px 18px;border-radius:999px;background:var(--accent);color:var(--on-accent);font-weight:600;font-size:16px;text-decoration:none;box-shadow:0 14px 30px -18px rgba(218,45,41,.9);transition:transform .35s var(--ease-out),box-shadow .35s var(--ease-out)}
+.hero__badge:hover{transform:translateY(-2px);box-shadow:0 18px 36px -16px rgba(218,45,41,.95)}
+.hero__badge-dot{width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.3)}
+.hero__badge-go{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);border-radius:999px;padding:9px 14px;font-size:14px}
+.hero__badge-go svg{width:12px;height:12px;transition:transform .35s var(--ease-out)}
+.hero__badge:hover .hero__badge-go svg{transform:translateX(3px)}
+.hero__badge:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+.femband{background:var(--accent);color:var(--on-accent);padding:clamp(56px,7vw,96px) 0;position:relative;overflow:hidden}
+.femband::before,.femband::after{content:"";position:absolute;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 28px,transparent 28px 48px)}
+.femband::before{top:18px}.femband::after{bottom:18px}
+.femband__grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:24px clamp(32px,5vw,80px);align-items:end}
+.femband__k{grid-column:1 / -1;margin:0;color:rgba(255,255,255,.85)}
+.femband__title{margin:0;font-family:var(--display);font-stretch:120%;font-weight:800;letter-spacing:-.045em;line-height:.92;font-size:clamp(2.8rem,7vw,6.6rem)}
+.femband__side p{margin:0 0 24px;font-size:clamp(1.05rem,1.4vw,1.2rem);line-height:1.5;max-width:40ch}
+.femband__btn{--bg:var(--paper);--fg:var(--ink)}
+.femband__btn .arrow{background:var(--accent);color:var(--on-accent)}
+.femband__btn::after{background:var(--ink)}
+.femband__btn:hover{color:var(--paper)}
+@media (max-width:920px){
+  .femband__grid{grid-template-columns:1fr}
+  .femband__btn{width:100%;justify-content:space-between}
+  .hero__badge{font-size:15px}
+}
+@media (max-width:560px){.hero__badge-t{display:none}.hero__badge-go{padding:10px 12px}.hero__badge{gap:10px}}
