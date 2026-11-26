@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a driving lesson — UDrive2 School of Motoring, Oldham &amp; Ashton</title>
+<meta name="description" content="Find the right driving lesson and request your booking. Filter by manual or automatic, male or female instructor, lesson type and the times that suit you.">
+<meta name="theme-color" content="#151617">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* ---------- finder layout ---------- */
+.finder{padding:clamp(50px,6vw,90px) 0 clamp(90px,10vw,140px)}
+.finder__grid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.filters{position:sticky;top:110px;border-top:1.5px solid var(--ink);padding-top:22px}
+.filters__head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.filters__head h2{font-family:var(--display);font-stretch:115%;font-weight:750;letter-spacing:-.02em;font-size:22px;margin:0}
+.filters__reset{background:none;border:0;padding:8px 0;font-size:14px;font-weight:600;color:var(--muted);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.filters__reset:hover{color:var(--ink)}
+.fgroup{border:0;margin:0;padding:20px 0;border-bottom:1px solid var(--rule)}
+.fgroup legend{padding:0;margin-bottom:12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.fgroup .fchips{gap:8px}
+.filters__toggle{display:none}
+
+.results__bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:10px 24px;border-top:1.5px solid var(--ink);padding:22px 0 18px}
+.results__count{font-family:var(--display);font-stretch:115%;font-weight:750;font-size:clamp(1.4rem,2.2vw,1.9rem);letter-spacing:-.025em;margin:0}
+.results__count b{color:var(--accent)}
+.results__sel{font-size:14.5px;color:var(--muted);margin:0}
+.results__note{margin:0 0 26px;font-size:14.5px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+.results__note::before{content:"";flex:none;width:9px;height:9px;margin-top:6px;border-radius:50%;background:var(--accent);border:1.5px solid var(--ink)}
+
+.opts{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.opt{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);border:1.5px solid var(--ink);border-radius:var(--radius);overflow:hidden;background:rgba(255,255,255,.4);transition:transform .45s var(--ease-out),box-shadow .45s var(--ease-out),background .3s}
+.opt:hover{transform:translateY(-3px);box-shadow:0 26px 50px -34px rgba(0,0,0,.45);background:rgba(255,255,255,.65)}
+.opt.is-chosen{box-shadow:0 0 0 3px var(--accent)}
+.opt[hidden]{display:none}
+.opt__media{position:relative;min-height:240px;background:var(--ink)}
+.opt__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.04)}
+.opt__media .plan__tag{position:absolute;left:14px;top:14px}
+.opt__body{padding:26px 28px 26px;display:flex;flex-direction:column;gap:14px}
+.opt__k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0}
+.opt__top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.opt h3{margin:0}
+.opt__price{text-align:right;flex:none}
+.opt__price b{display:block;font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(2rem,3vw,2.6rem);letter-spacing:-.045em;line-height:1}
+.opt__price span{font-size:13.5px;color:var(--muted)}
+.opt p.opt__desc{margin:0;color:var(--muted);font-size:15.5px;max-width:52ch}
+.opt__inc{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14.5px}
+.opt__inc li{display:flex;gap:8px;align-items:center}
+.opt__inc li::before{content:"";width:12px;height:3px;background:var(--ink)}
+.opt__meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+.opt__meta span{font-size:13px;padding:6px 11px;border-radius:999px;border:1px solid var(--rule);background:rgba(255,255,255,.5)}
+.opt__meta span.on{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.opt .btn{align-self:flex-start;margin-top:auto}
+.empty{border:1.5px dashed var(--rule);border-radius:var(--radius);padding:40px 28px;text-align:center;color:var(--muted)}
+.empty h3{color:var(--ink);margin:0 0 10px}
+.empty button{margin-top:16px}
+
+/* ---------- request form ---------- */
+.request{padding:clamp(90px,11vw,150px) 0 60px}
+.request__title{font-size:clamp(3rem,8vw,7.4rem)}
+.request__title em{font-style:italic;color:var(--accent)}
+.summary{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding:0;list-style:none}
+.summary li{font-size:14px;padding:7px 13px;border-radius:999px;background:var(--ink);border:1px solid var(--rule-ink);color:var(--paper)}
+.summary li b{color:var(--accent-hi);font-weight:600;margin-right:6px}
+.form__row--3{grid-template-columns:1fr 1fr 1fr}
+#request{scroll-margin-top:90px}
+
+@media (max-width:1100px){
+  .finder__grid{grid-template-columns:1fr}
+  .filters{position:static}
+  .filters__toggle{display:flex;width:100%;justify-content:space-between;align-items:center;min-height:56px;padding:0 20px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;font-weight:600;font-size:16px;cursor:pointer}
+  .filters__toggle .n{font-family:var(--mono);font-size:12px;background:var(--ink);color:var(--paper);border-radius:999px;padding:3px 9px}
+  .filters__panel{margin-top:10px}
+  .js .filters__panel[data-collapsed="true"]{display:none}
+  .filters__head h2{display:none}
+}
+@media (max-width:720px){
+  .opt{grid-template-columns:1fr}
+  .opt__media{min-height:0;aspect-ratio:16/9}
+  .opt__body{padding:22px 20px}
+  .opt__top{flex-direction:column;gap:8px}
+  .opt__price{text-align:left}
+  .opt .btn{width:100%;justify-content:space-between}
+  .form__row--3{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="top">
+  <div class="nav__bar">
+    <a class="logo" href="index.html" aria-label="UDrive2 School of Motoring — home"><img src="assets/udrive2-logo.webp" alt="UDrive2 School of Motoring" width="520" height="269"></a>
+    <nav aria-label="Main">
+      <ul class="nav__links">
+        <li><a href="index.html#lessons">Lessons</a></li>
+        <li><a href="index.html#prices">Prices</a></li>
+        <li><a href="index.html#areas">Areas</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="index.html#faqs">FAQs</a></li>
+      </ul>
+    </nav>
+    <a class="btn nav__cta" href="#request">Book your first lesson <span class="arrow" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+    <button class="nav__menu" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="drawer" aria-label="Menu">
+  <a class="dl" href="index.html">Home</a>
+  <a class="dl" href="index.html#lessons">Lessons</a>
+  <a class="dl" href="index.html#prices">Prices</a>
+  <a class="dl" href="reviews.html">Reviews</a>
+  <a class="dl" href="index.html#faqs">FAQs</a>
+  <a class="btn" href="#request">Send a booking request <span class="arrow" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+</div>
+
+<main id="main">
+  <!-- ============================ HEADER ============================ -->
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="wrap">
+      <p class="crumbs reveal"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <span>Book a lesson</span></p>
+      <div class="page-hero__grid">
+        <h1 class="display reveal" id="page-title">Find your<br><em>lesson.</em></h1>
+        <p class="lede reveal" style="--d:.1">Filter by gearbox, instructor, lesson type and the times that suit you — then send your request in under a minute.</p>
+      </div>
+    </div>
+    <div class="page-hero__road" aria-hidden="true"></div>
+  </section>
+
+  <!-- ============================ FINDER ============================ -->
+  <section class="finder" aria-label="Lesson finder">
+    <div class="wrap finder__grid">
+      <aside class="filters" aria-labelledby="filters-title">
+        <button class="filters__toggle" type="button" aria-expanded="false" aria-controls="filters-panel">Filter lessons <span class="n" id="filterCount">0 active</span></button>
+        <div class="filters__panel" id="filters-panel" data-collapsed="true">
+          <div class="filters__head">
+            <h2 id="filters-title">Filters</h2>
+            <button class="filters__reset" type="button" id="resetFilters">Clear all</button>
+          </div>
+          <form id="filters" onsubmit="return false">
+            <fieldset class="fgroup">
+              <legend>Gearbox</legend>
+              <div class="fchips">
+                <label class="fchip"><input type="radio" name="gearbox" value="any" checked><span>Either</span></label>
+                <label class="fchip"><input type="radio" name="gearbox" value="Manual"><span>Manual</span></label>
+                <label class="fchip"><input type="radio" name="gearbox" value="Automatic"><span>Automatic</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="fgroup">
+              <legend>Instructor</legend>
+              <div class="fchips">
+                <label class="fchip"><input type="radio" name="instructor" value="any" checked><span>No preference</span></label>
+                <label class="fchip"><input type="radio" name="instructor" value="Male instructor"><span>Male</span></label>
+                <label class="fchip"><input type="radio" name="instructor" value="Female instructor"><span>Female</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="fgroup">
+              <legend>Lesson type &amp; package</legend>
+              <div class="fchips">
+                <label class="fchip"><input type="checkbox" name="kind" value="payg"><span>Pay as you go</span></label>
+                <label class="fchip"><input type="checkbox" name="kind" value="standard"><span>10-hour package</span></label>
+                <label class="fchip"><input type="checkbox" name="kind" value="intensive"><span>Intensive course</span></label>
+                <label class="fchip"><input type="checkbox" name="kind" value="refresher"><span>Refresher</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="fgroup">
+              <legend>Day &amp; time</legend>
+              <div class="fchips">
+                <label class="fchip"><input type="checkbox" name="when" value="Weekday daytime"><span>Weekday daytime</span></label>
+                <label class="fchip"><input type="checkbox" name="when" value="Evenings"><span>Evenings</span></label>
+                <label class="fchip"><input type="checkbox" name="when" value="Weekends"><span>Weekends</span></label>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </aside>
+
+      <div class="results">
+        <div class="results__bar">
+          <p class="results__count" id="resultCount" aria-live="polite"><b>4</b> lessons match</p>
+          <p class="results__sel" id="resultSel">Showing every lesson</p>
+        </div>
+        <p class="results__note">Every lesson is available in a manual or automatic car, with a male or female instructor, on weekdays, evenings and weekends. Your choices are added to your booking request.</p>
+        <ul class="opts" id="opts"></ul>
+        <div class="empty" id="empty" hidden>
+          <h3 class="h3">Nothing matches those filters</h3>
+          <p>Try removing a lesson type, or clear everything to see all lessons.</p>
+          <button class="btn btn--ink" type="button" id="emptyReset">Clear filters <span class="arrow" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.8"/></svg></span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ REQUEST ============================ -->
+  <section class="book request on-ink" id="request" aria-labelledby="request-title">
+    <div class="wrap">
+      <p class="eyebrow reveal">Step 2 · Your details</p>
+      <h2 class="display request__title reveal" id="request-title">Ready to take<br>the <em>wheel?</em></h2>
+      <div class="book__grid">
+        <div class="contact reveal">
+          <div>
+            <p class="mono" style="color:var(--muted-on-ink);margin:0 0 14px">Contact your instructor</p>
+            <p class="contact__name">Farooq Afzal</p>
+            <a class="contact__tel" href="tel:+447843449667" aria-label="Call 07843 449 667">07843 449 667</a>
+            <a class="contact__email" href="mailto:Farooqudrive2@hotmail.co.uk">Farooqudrive2@hotmail.co.uk</a>
+          </div>
+          <dl>
+            <div><dt>Instructors</dt><dd>Male &amp; female available</dd></div>
+            <div><dt>Areas</dt><dd>Oldham &amp; Ashton-under-Lyne</dd></div>
+            <div><dt>Lessons</dt><dd>Daytime, evenings &amp; weekends</dd></div>
+          </dl>
+        </div>
+
+        <form class="form reveal" id="book-form" novalidate style="--d:.1" aria-labelledby="form-title">
+          <h3 class="form__title h3" id="form-title">Request your lesson</h3>
+          <div class="form__fields">
+            <ul class="summary" id="summary" aria-label="Your choices"></ul>
+            <div class="form__row">
+              <div class="field">
+                <label for="f-name">Your name</label>
+                <input id="f-name" name="name" autocomplete="name" required placeholder="First and last name">
+                <span class="err" id="e-name" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="f-phone">Mobile number</label>
+                <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="07…">
+                <span class="err" id="e-phone" role="alert"></span>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="field">
+                <label for="f-area">Postcode or area <span class="hint">(for pick-up)</span></label>
+                <input id="f-area" name="area" autocomplete="postal-code" placeholder="e.g. OL1 or Ashton">
+              </div>
+              <div class="field">
+                <label for="f-lesson">Lesson</label>
+                <select id="f-lesson" name="lesson">
+                  <option value="">Not sure yet</option>
+                  <option value="payg">Pay as you go — £35 per hour</option>
+                  <option value="standard">Standard — £340 for 10 hours</option>
+                  <option value="intensive">Intensive — £680, 20 hours</option>
+                  <option value="refresher">Refresher lessons — £35 per hour</option>
+                </select>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="field">
+                <label for="f-gearbox">Gearbox</label>
+                <select id="f-gearbox" name="gearbox"><option value="any">Either / not sure</option><option>Manual</option><option>Automatic</option></select>
+              </div>
+              <div class="field">
+                <label for="f-instructor">Instructor</label>
+                <select id="f-instructor" name="instructor"><option value="any">No preference</option><option>Male instructor</option><option>Female instructor</option></select>
+              </div>
+            </div>
+            <fieldset class="field">
+              <legend>Best times for you</legend>
+              <div class="chips">
+                <label class="chip"><input type="checkbox" name="times" value="Weekday daytime"><span>Weekday daytime</span></label>
+                <label class="chip"><input type="checkbox" name="times" value="Evenings"><span>Evenings</span></label>
+                <label class="chip"><input type="checkbox" name="times" value="Weekends"><span>Weekends</span></label>
+              </div>
+            </fieldset>
+            <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <p class="form__err" id="formErr" role="alert" tabindex="-1" hidden></p>
+            <button class="btn" type="submit" id="formSubmit"><span class="btn__label">Send my request</span> <span class="arrow" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.8"/></svg></span></button>
+            <p class="form__note">Your details go straight to your instructor and are only used to arrange your lessons. <a href="privacy.html">Privacy notice</a></p>
+          </div>
+          <div class="form__done" tabindex="-1" id="formDone" role="status">
+            <span class="done__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3 class="h3" id="doneTitle"></h3>
+            <p id="doneText"></p>
+            <div class="btns">
+              <a class="btn" id="smsLink" href="#" hidden>Send by text <span class="arrow" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+              <a class="btn btn--ghost" href="tel:+447843449667">Call instead</a>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <footer class="foot">
+        <div class="foot__grid">
+          <div class="foot__brand">
+            <a class="logo logo--lg" href="index.html" aria-label="UDrive2 School of Motoring — home"><img loading="lazy" src="assets/udrive2-logo.webp" alt="UDrive2 School of Motoring" width="520" height="269"></a>
+            <p>Patient, DVSA-approved driving lessons across Oldham &amp; Ashton-under-Lyne.</p>
+          </div>
+          <div class="foot__col">
+            <p class="foot__h">Contact</p>
+            <p>DVSA-approved instructor</p>
+            <p><a href="tel:+447843449667">07843 449 667</a><br><span class="foot__muted">Call or text</span></p>
+          </div>
+          <div class="foot__col">
+            <p class="foot__h">Lessons</p>
+            <p>Oldham &amp; Ashton-under-Lyne<br>Daytime, evenings &amp; weekends<br>From £35 per hour</p>
+          </div>
+          <nav class="foot__col" aria-label="Footer">
+            <p class="foot__h">Explore</p>
+            <ul><li><a href="index.html#lessons">Lessons</a></li><li><a href="index.html#prices">Prices</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="index.html#faqs">FAQs</a></li><li><a href="book.html">Book a lesson</a></li><li><a href="privacy.html">Privacy notice</a></li></ul>
+          </nav>
+        </div>
+        <div class="foot__base">
+          <small>© <span id="yr">2026</span> UDrive2 School of Motoring</small>
+          <small class="credits">Photography via <a href="https://unsplash.com" rel="noopener">Unsplash</a>.</small>
+        </div>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<nav class="mbar is-shown" id="mbar" aria-label="Quick booking">
+  <a class="call" href="tel:+447843449667" aria-label="Call UDrive2"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 2.5h3l1.5 4-2 1.3a9 9 0 0 0 5.7 5.7l1.3-2 4 1.5v3A1.5 1.5 0 0 1 16 17.5 13.5 13.5 0 0 1 2.5 4 1.5 1.5 0 0 1 4 2.5Z" stroke="currentColor" stroke-width="1.6"/></svg>Call</a>
+  <a class="go" href="#request">Send request</a>
+</nav>
+
+<script src="assets/site.js"></script>
+<script>
+(() => {
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ARROW = '<span class="arrow" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.8"/></svg></span>';
+
+  /* ---------- lesson options (edit prices and inclusions here) ---------- */
+  const OPTIONS = [
+    { key: 'payg', kicker: 'Pay as you go', title: 'Starter lessons', price: '£35', unit: 'per hour', img: 'img/manual.webp',
+      alt: 'Close-up of a manual gear knob',
+      desc: 'For new learners building confidence — book one lesson at a time, at your own pace.',
+      inc: ['1-hour lessons', 'Free local pick-up', 'Flexible scheduling'] },
+    { key: 'standard', kicker: '10-hour package', title: 'Standard package', price: '£340', unit: '10 hours', tag: 'Save £10', img: 'img/stop2.webp',
+      alt: "A learner's hands on the steering wheel on a town street",
+      desc: 'Steady, consistent progress with a saving built in. Works out at £34 per hour.',
+      inc: ['10 hours of lessons', 'Ongoing progress tracking', 'Pick-up & drop-off'] },
+    { key: 'intensive', kicker: 'Intensive course', title: 'Intensive course', price: '£680', unit: '20 hours', img: 'img/intensive.webp',
+      alt: 'A winding road through green hills',
+      desc: 'For learners who want to pass faster — all DVSA requirements covered in a shorter timeframe.',
+      inc: ['20 hours of training', 'Mock test & pre-test assessment', 'Custom test date'] },
+    { key: 'refresher', kicker: 'Refresher', title: 'Refresher lessons', price: '£35', unit: 'per hour', img: 'img/refresher.webp',
+      alt: 'Aerial view of a busy town roundabout',
+      desc: 'Already passed but lost confidence? Sessions built around exactly what you want to work on.',
+      inc: ['For full licence holders', 'You set the focus', 'Free local pick-up'] }
+  ];
+
+  const list = $('#opts');
+  list.innerHTML = OPTIONS.map(o => `
+    <li class="opt reveal" data-key="${o.key}">
+      <div class="opt__media"><img src="${o.img}" alt="${o.alt}" loading="lazy" decoding="async">${o.tag ? `<span class="plan__tag">${o.tag}</span>` : ''}</div>
+      <div class="opt__body">
+        <div class="opt__top">
+          <div><p class="opt__k">${o.kicker}</p><h3 class="h3">${o.title}</h3></div>
+          <p class="opt__price"><b>${o.price}</b><span>${o.unit}</span></p>
+        </div>
+        <p class="opt__desc">${o.desc}</p>
+        <ul class="opt__inc">${o.inc.map(x => `<li>${x}</li>`).join('')}</ul>
+        <div class="opt__meta" aria-label="Your choices for this lesson"></div>
+        <button class="btn btn--ink" type="button" data-choose="${o.key}">Choose ${o.title.toLowerCase()} ${ARROW}</button>
+      </div>
+    </li>`).join('');
+  observeReveals(list);
+
+  /* ---------- filters ---------- */
+  const f = $('#filters');
+  const state = () => ({
+    gearbox: f.gearbox.value,
+    instructor: f.instructor.value,
+    kinds: $$('input[name="kind"]:checked', f).map(i => i.value),
+    when: $$('input[name="when"]:checked', f).map(i => i.value)
+  });
+  const LABEL = { payg: 'Pay as you go', standard: '10-hour package', intensive: 'Intensive course', refresher: 'Refresher' };
+
+  const render = () => {
+    const s = state();
+    let n = 0;
+    $$('.opt', list).forEach(li => {
+      const show = !s.kinds.length || s.kinds.includes(li.dataset.key);
+      li.hidden = !show; if (show) n++;
+      const meta = [
+        [s.gearbox === 'any' ? 'Manual or automatic' : s.gearbox, s.gearbox !== 'any'],
+        [s.instructor === 'any' ? 'Male or female instructor' : s.instructor, s.instructor !== 'any'],
+        [s.when.length ? s.when.join(' · ') : 'Daytime, evenings & weekends', s.when.length > 0]
+      ];
+      $('.opt__meta', li).innerHTML = meta.map(([t, on]) => `<span class="${on ? 'on' : ''}">${t}</span>`).join('');
+    });
+    $('#resultCount').innerHTML = `<b>${n}</b> ${n === 1 ? 'lesson matches' : 'lessons match'}`;
+    const bits = [s.gearbox !== 'any' && s.gearbox, s.instructor !== 'any' && s.instructor, ...s.kinds.map(k => LABEL[k]), ...s.when].filter(Boolean);
+    $('#resultSel').textContent = bits.length ? bits.join(' · ') : 'Showing every lesson';
+    $('#filterCount').textContent = bits.length + ' active';
+    $('#empty').hidden = n > 0;
+    syncForm();
+  };
+  f.addEventListener('change', render);
+  const reset = () => { f.reset(); render(); };
+  $('#resetFilters').addEventListener('click', reset);
+  $('#emptyReset').addEventListener('click', reset);
+
+  // mobile: collapsible filter panel
+  const tog = $('.filters__toggle'), panel = $('#filters-panel');
+  tog.addEventListener('click', () => { const open = tog.getAttribute('aria-expanded') !== 'true'; tog.setAttribute('aria-expanded', open); panel.dataset.collapsed = !open; });
+
+  /* ---------- booking form, kept in step with the filters ---------- */
+  const form = $('#book-form');
+  let chosen = '';
+  const syncForm = () => {
+    const s = state();
+    form.gearbox.value = s.gearbox; form.instructor.value = s.instructor;
+    $$('input[name="times"]', form).forEach(c => c.checked = s.when.includes(c.value));
+    if (!chosen && s.kinds.length === 1) form.lesson.value = s.kinds[0];
+    summary();
+  };
+  const summary = () => {
+    const lessonTxt = form.lesson.selectedOptions[0].text;
+    const times = $$('input[name="times"]:checked', form).map(i => i.value).join(', ');
+    const items = [['Lesson', form.lesson.value ? lessonTxt : ''], ['Gearbox', form.gearbox.value !== 'any' ? form.gearbox.value : ''], ['Instructor', form.instructor.value !== 'any' ? form.instructor.value : ''], ['Times', times]].filter(x => x[1]);
+    $('#summary').innerHTML = items.map(([k, v]) => `<li><b>${k}</b>${v}</li>`).join('');
+    $('#summary').hidden = !items.length;
+  };
+  form.addEventListener('change', summary);
+
+  list.addEventListener('click', e => {
+    const b = e.target.closest('[data-choose]'); if (!b) return;
+    chosen = b.dataset.choose; form.lesson.value = chosen;
+    $$('.opt', list).forEach(li => li.classList.toggle('is-chosen', li.dataset.key === chosen));
+    summary();
+    $('#request').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+    setTimeout(() => form.name.focus({ preventScroll: true }), reduce ? 0 : 600);
+  });
+
+  /* ---------- preselect from links on the homepage ---------- */
+  const q = new URLSearchParams(location.search);
+  const plan = q.get('plan'), type = q.get('type');
+  const tick = v => { const i = $(`input[name="kind"][value="${v}"]`, f); if (i) i.checked = true; };
+  if (plan) { const k = plan === 'starter' ? 'payg' : plan; tick(k); chosen = k; form.lesson.value = k; }
+  if (type === 'manual') f.gearbox.value = 'Manual';
+  if (type === 'automatic') f.gearbox.value = 'Automatic';
+  if (type === 'intensive' || type === 'refresher') tick(type);
+  render();
+
+  /* ---------- send ---------- */
+  // Same delivery set-up as the homepage form. Add a Formspree / FormSubmit endpoint to send directly.
+  const FORM_CONFIG = { endpoint: '', responseTime: '' };
+  const submitBtn = $('#formSubmit'), errBox = $('#formErr');
+  const setErr = (id, msg) => { const i = $('#f-' + id), e = $('#e-' + id); e.textContent = msg; i.setAttribute('aria-invalid', !!msg); if (msg) i.setAttribute('aria-describedby', 'e-' + id); else i.removeAttribute('aria-describedby'); return !msg; };
+  const smsHref = msg => 'sms:+447843449667?&body=' + encodeURIComponent(msg);
+  const showDone = (title, text, sms) => {
+    $('#doneTitle').textContent = title; $('#doneText').textContent = text;
+    const l = $('#smsLink'); l.hidden = !sms; if (sms) l.href = sms;
+    form.classList.add('is-done'); $('#formDone').focus({ preventScroll: true });
+    scrollTo({ top: form.getBoundingClientRect().top + scrollY - 120, behavior: reduce ? 'auto' : 'smooth' });
+  };
+  const setBusy = on => { submitBtn.disabled = on; form.setAttribute('aria-busy', on); $('.btn__label', submitBtn).textContent = on ? 'Sending…' : 'Send my request'; };
+  form.addEventListener('submit', async e => {
+    e.preventDefault(); errBox.hidden = true;
+    const name = form.name.value.trim(), phone = form.phone.value.trim();
+    const ok1 = setErr('name', name ? '' : 'Please tell us your name.');
+    const ok2 = setErr('phone', /^\+?[\d\s()-]{10,}$/.test(phone) ? '' : 'Please enter a valid UK mobile number.');
+    if (!ok1 || !ok2) { (!ok1 ? form.name : form.phone).focus(); return; }
+    const first = name.split(' ')[0];
+    const d = {
+      lesson: form.lesson.value ? form.lesson.selectedOptions[0].text : 'Not sure yet',
+      gearbox: form.gearbox.value === 'any' ? 'Either' : form.gearbox.value,
+      instructor: form.instructor.value === 'any' ? 'No preference' : form.instructor.value,
+      times: $$('input[name="times"]:checked', form).map(i => i.value).join(', ') || 'Flexible',
+      area: form.area.value.trim() || '-'
+    };
+    const msg = `Hi, I'd like to book a lesson with UDrive2.\nName: ${name}\nMobile: ${phone}\nArea: ${d.area}\nLesson: ${d.lesson}\nGearbox: ${d.gearbox}\nInstructor: ${d.instructor}\nBest times: ${d.times}`;
+    if (form._gotcha.value) return showDone(`Thanks, ${first}.`, 'Your request has been received.');
+    if (!FORM_CONFIG.endpoint) return showDone(`Nearly there, ${first}.`, 'Tap below to send your request by text — or give us a call — and we’ll arrange your lesson.', smsHref(msg));
+    setBusy(true);
+    try {
+      const res = await fetch(FORM_CONFIG.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ name, phone, area: d.area, lesson: d.lesson, gearbox: d.gearbox, instructor: d.instructor, best_times: d.times, _subject: `New lesson enquiry — ${name}`, _template: 'table' }) });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      showDone(`Thanks, ${first} — request received.`, `We’ll contact you on ${phone}${FORM_CONFIG.responseTime ? ' ' + FORM_CONFIG.responseTime : ''} to arrange your lesson.`);
+      form.reset();
+    } catch (err) {
+      errBox.innerHTML = 'Sorry — your request didn’t go through. Please try again or <a href="' + smsHref(msg) + '">send it by text</a>.';
+      errBox.hidden = false; errBox.focus();
+    } finally { setBusy(false); }
+  });
+})();
+</script>
+</body>
+</html>

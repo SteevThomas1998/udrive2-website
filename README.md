@@ -34,3 +34,9 @@ They appear automatically once the files exist; until then the badges show text 
 
 ## Credits
 Stock photography via [Unsplash](https://unsplash.com) (Unsplash Licence): takahiro taguchi, Hari Perisetla, Agamveer Singh, Zoltan Tasi, Ben Elliott, Holiday Extras, Stephan Mahlke, Bas Peperzak, Ian Cylkowski, Chloë Forbes-Kindlen, Patrycja Olszak, Waldemar Brandt, Alicia Christin Gerald, James Read, why kei, Andraz Lazic, William V, Jan Baborák, Mehrdad Jiryaee.
+
+## Pages
+- `index.html` — home page
+- `book.html` — Book a lesson: lesson finder (gearbox, instructor, lesson type, day & time) and booking request form
+- `reviews.html` — Reviews. **Currently shows SAMPLE reviews**, each labelled on the page. Replace the `REVIEWS` list in the page script with genuine reviews before launch.
+- `assets/site.css` — shared styles; `assets/site.js` — shared nav/reveal script for inner pages

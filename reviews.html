@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reviews — UDrive2 School of Motoring, Oldham &amp; Ashton</title>
+<meta name="description" content="What learners say about driving lessons with UDrive2 School of Motoring in Oldham and Ashton-under-Lyne.">
+<meta name="theme-color" content="#151617">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.rv{padding:clamp(40px,5vw,70px) 0 clamp(90px,10vw,140px)}
+.rv__bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 30px;border-top:1.5px solid var(--ink);padding-top:24px;margin-bottom:clamp(36px,5vw,60px)}
+.rv__count{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0}
+
+/* featured review */
+.feature{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(30px,5vw,80px);align-items:center;margin-bottom:clamp(50px,7vw,100px)}
+.feature__img{position:relative;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;background:var(--ink)}
+.feature__img img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.04)}
+.feature__mark{font-family:var(--display);font-weight:800;font-size:140px;line-height:.55;color:var(--accent);display:block;height:62px}
+.feature blockquote{margin:0;font-family:var(--display);font-stretch:108%;font-weight:550;font-size:clamp(1.7rem,3.4vw,3rem);letter-spacing:-.025em;line-height:1.12}
+.feature figcaption{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;color:var(--muted);font-size:15px}
+.feature figcaption strong{color:var(--ink)}
+.feature__fade{transition:opacity .35s var(--ease-out),transform .45s var(--ease-out)}
+.feature__fade.is-swapping{opacity:0;transform:translateY(10px)}
+
+/* the rest — editorial columns, not a card grid */
+.wall{columns:3 300px;column-gap:clamp(24px,3vw,44px)}
+.rcard{break-inside:avoid;margin:0 0 clamp(24px,3vw,40px);padding-top:22px;border-top:1px solid var(--rule);position:relative}
+.rcard::before{content:"";position:absolute;left:0;top:-1px;width:44px;height:3px;background:var(--accent)}
+.rcard blockquote{margin:0 0 18px;font-size:clamp(1.05rem,1.3vw,1.2rem);line-height:1.5}
+.rcard figcaption{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.rcard figcaption strong{color:var(--ink);font-size:15px}
+.rtags{display:flex;flex-wrap:wrap;gap:6px}
+.rtags span{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:3px;background:var(--paper-2)}
+.rv__empty{color:var(--muted)}
+
+/* leave-a-review band */
+.leave{display:grid;grid-template-columns:minmax(0,1.2fr) auto;gap:30px;align-items:center;padding:clamp(36px,5vw,64px);border-radius:var(--radius);margin-top:clamp(40px,6vw,80px)}
+.leave h2{font-size:clamp(2rem,4vw,3.4rem)}
+.leave p{margin:14px 0 0;color:var(--muted-on-ink);max-width:46ch}
+.leave .btns{display:flex;flex-wrap:wrap;gap:12px}
+
+@media (max-width:920px){
+  .feature{grid-template-columns:1fr}
+  .feature__img{aspect-ratio:16/10}
+  .leave{grid-template-columns:1fr}
+  .leave .btn{width:100%;justify-content:space-between}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="top">
+  <div class="nav__bar">
+    <a class="logo" href="index.html" aria-label="UDrive2 School of Motoring — home"><img src="assets/udrive2-logo.webp" alt="UDrive2 School of Motoring" width="520" height="269"></a>
+    <nav aria-label="Main">
+      <ul class="nav__links">
+        <li><a href="index.html#lessons">Lessons</a></li>
+        <li><a href="index.html#prices">Prices</a></li>
+        <li><a href="index.html#areas">Areas</a></li>
+        <li><a href="reviews.html" aria-current="true">Reviews</a></li>
+        <li><a href="index.html#faqs">FAQs</a></li>
+      </ul>
+    </nav>
+    <a class="btn nav__cta" href="book.html">Book your first lesson <span class="arrow" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+    <button class="nav__menu" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="drawer" aria-label="Menu">
+  <a class="dl" href="index.html">Home</a>
+  <a class="dl" href="index.html#lessons">Lessons</a>
+  <a class="dl" href="index.html#prices">Prices</a>
+  <a class="dl" href="reviews.html">Reviews</a>
+  <a class="dl" href="index.html#faqs">FAQs</a>
+  <a class="btn" href="book.html">Book your first lesson <span class="arrow" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+</div>
+
+<main id="main">
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="wrap">
+      <p class="crumbs reveal"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <span>Reviews</span></p>
+      <div class="page-hero__grid">
+        <h1 class="display reveal" id="page-title">In their<br>own <em>words.</em></h1>
+        <p class="lede reveal" style="--d:.1">What learners say about learning to drive with UDrive2 across Oldham and Ashton.</p>
+      </div>
+    </div>
+    <div class="page-hero__road" aria-hidden="true"></div>
+  </section>
+
+  <section class="rv" aria-label="Learner reviews">
+    <div class="wrap">
+      <div class="rv__bar">
+        <div class="fchips" role="group" aria-label="Filter reviews" id="rvFilters">
+          <button class="fchip-btn" type="button" data-f="all" aria-pressed="true">All</button>
+          <button class="fchip-btn" type="button" data-f="Manual" aria-pressed="false">Manual</button>
+          <button class="fchip-btn" type="button" data-f="Automatic" aria-pressed="false">Automatic</button>
+          <button class="fchip-btn" type="button" data-f="Intensive" aria-pressed="false">Intensive</button>
+          <button class="fchip-btn" type="button" data-f="Refresher" aria-pressed="false">Refresher</button>
+          <button class="fchip-btn" type="button" data-f="Female instructor" aria-pressed="false">Female instructor</button>
+        </div>
+        <p class="rv__count" id="rvCount" aria-live="polite"></p>
+      </div>
+
+      <figure class="feature reveal" id="feature">
+        <div class="feature__img"><img id="featureImg" src="img/trust.webp" width="1200" height="900" alt="" loading="lazy" decoding="async"></div>
+        <div class="feature__fade">
+          <span class="feature__mark" aria-hidden="true">“</span>
+          <blockquote id="featureText"></blockquote>
+          <figcaption id="featureBy"></figcaption>
+        </div>
+      </figure>
+
+      <div class="wall" id="wall"></div>
+      <p class="rv__empty" id="rvEmpty" hidden>No reviews in this category yet.</p>
+
+      <div class="leave on-ink reveal">
+        <div>
+          <h2 class="h2">Learned with UDrive2?</h2>
+          <p>We’d love to hear how it went. Your review helps the next nervous learner take the first step.</p>
+        </div>
+        <div class="btns">
+          <a class="btn" href="index.html#book">Share your experience <span class="arrow" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+          <a class="btn btn--ghost" href="book.html">Book a lesson</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="book on-ink" style="padding-top:0" aria-label="Site footer">
+    <div class="wrap">
+      <footer class="foot" style="margin-top:0">
+        <div class="foot__grid">
+          <div class="foot__brand">
+            <a class="logo logo--lg" href="index.html" aria-label="UDrive2 School of Motoring — home"><img loading="lazy" src="assets/udrive2-logo.webp" alt="UDrive2 School of Motoring" width="520" height="269"></a>
+            <p>Patient, DVSA-approved driving lessons across Oldham &amp; Ashton-under-Lyne.</p>
+          </div>
+          <div class="foot__col">
+            <p class="foot__h">Contact</p>
+            <p>DVSA-approved instructor</p>
+            <p><a href="tel:+447843449667">07843 449 667</a><br><span class="foot__muted">Call or text</span></p>
+          </div>
+          <div class="foot__col">
+            <p class="foot__h">Lessons</p>
+            <p>Oldham &amp; Ashton-under-Lyne<br>Daytime, evenings &amp; weekends<br>From £35 per hour</p>
+          </div>
+          <nav class="foot__col" aria-label="Footer">
+            <p class="foot__h">Explore</p>
+            <ul><li><a href="index.html#lessons">Lessons</a></li><li><a href="index.html#prices">Prices</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="index.html#faqs">FAQs</a></li><li><a href="book.html">Book a lesson</a></li><li><a href="privacy.html">Privacy notice</a></li></ul>
+          </nav>
+        </div>
+        <div class="foot__base">
+          <small>© <span id="yr">2026</span> UDrive2 School of Motoring</small>
+          <small class="credits">Photography via <a href="https://unsplash.com" rel="noopener">Unsplash</a>.</small>
+        </div>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<nav class="mbar is-shown" id="mbar" aria-label="Quick booking">
+  <a class="call" href="tel:+447843449667" aria-label="Call UDrive2"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 2.5h3l1.5 4-2 1.3a9 9 0 0 0 5.7 5.7l1.3-2 4 1.5v3A1.5 1.5 0 0 1 16 17.5 13.5 13.5 0 0 1 2.5 4 1.5 1.5 0 0 1 4 2.5Z" stroke="currentColor" stroke-width="1.6"/></svg>Call</a>
+  <a class="go" href="book.html">Book a lesson</a>
+</nav>
+
+<script src="assets/site.js"></script>
+<script>
+(() => {
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- REVIEWS ----------
+     These are SAMPLE reviews to show the layout. Each one is labelled "Sample review" on the page.
+     Replace them with genuine reviews (word-for-word, with the learner's permission) and set sample:false,
+     or delete the `sample` line. tags: Manual / Automatic / Intensive / Refresher / Female instructor */
+  const REVIEWS = [
+    { name: 'Aisha K.', area: 'Oldham', tags: ['Automatic', 'Female instructor'], sample: true, img: 'img/trust.webp',
+      text: 'I was so nervous before my first lesson and asked for a female instructor — that made all the difference. Calm, patient and never once made me feel rushed.' },
+    { name: 'Daniel R.', area: 'Ashton-under-Lyne', tags: ['Manual'], sample: true, img: 'img/stop2.webp',
+      text: 'Roundabouts used to terrify me. We practised the big ones around Ashton until they felt routine. Clear explanations every single lesson.' },
+    { name: 'Sophie T.', area: 'Oldham', tags: ['Intensive'], sample: true, img: 'img/intensive.webp',
+      text: 'I needed my licence quickly for a new job. The intensive course was well organised and the mock test meant nothing on the day surprised me.' },
+    { name: 'Imran H.', area: 'Ashton-under-Lyne', tags: ['Refresher'], sample: true, img: 'img/refresher.webp',
+      text: 'Passed years ago but hadn’t driven since. A few refresher sessions on busy town roads and I’m confident behind the wheel again.' },
+    { name: 'Chloe M.', area: 'Oldham', tags: ['Manual'], sample: true, img: 'img/manual.webp',
+      text: 'Being picked up from home and dropped back after college made fitting lessons in so easy. Hill starts finally make sense!' },
+    { name: 'Bilal S.', area: 'Oldham', tags: ['Automatic'], sample: true, img: 'img/strip-evening.webp',
+      text: 'Evening lessons worked perfectly around my shifts. Going automatic let me focus on reading the road rather than the gears.' },
+    { name: 'Hannah W.', area: 'Ashton-under-Lyne', tags: ['Manual'], sample: true, img: 'img/stop3.webp',
+      text: 'Every lesson had a clear goal and I could see my progress week by week. The pre-test check gave me real confidence going into the test.' },
+    { name: 'Zara A.', area: 'Oldham', tags: ['Intensive', 'Female instructor'], sample: true, img: 'img/strip-confident.webp',
+      text: 'Having a female instructor on the intensive course put me at ease straight away. Friendly, professional and genuinely encouraging.' }
+  ];
+
+  const wall = $('#wall'), count = $('#rvCount'), empty = $('#rvEmpty'), feature = $('#feature'), fade = $('.feature__fade');
+  const by = r => `<strong>${r.name}</strong><span>${r.area}</span><span class="rtags">${r.tags.map(t => `<span>${t}</span>`).join('')}</span>${r.sample ? '<span class="sample-tag">Sample review</span>' : ''}`;
+  let current = 'all';
+
+  const render = () => {
+    const items = REVIEWS.filter(r => current === 'all' || r.tags.includes(current));
+    const real = items.filter(r => !r.sample).length;
+    count.textContent = `${items.length} ${items.length === 1 ? 'review' : 'reviews'}` + (real < items.length ? ' · samples shown' : '');
+    empty.hidden = items.length > 0; feature.hidden = !items.length;
+    if (!items.length) { wall.innerHTML = ''; return; }
+    const [first, ...rest] = items;
+    const paint = () => {
+      $('#featureText').textContent = first.text;
+      $('#featureBy').innerHTML = by(first);
+      $('#featureImg').src = first.img;
+      wall.innerHTML = rest.map(r => `<figure class="rcard reveal"><blockquote>${r.text}</blockquote><figcaption>${by(r)}</figcaption></figure>`).join('');
+      observeReveals(wall); fade.classList.remove('is-swapping');
+    };
+    if (reduce || !wall.children.length) return paint();
+    fade.classList.add('is-swapping'); setTimeout(paint, 220);
+  };
+
+  $$('#rvFilters button').forEach(b => b.addEventListener('click', () => {
+    current = b.dataset.f;
+    $$('#rvFilters button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    render();
+  }));
+  render();
+})();
+</script>
+</body>
+</html>
