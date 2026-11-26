@@ -837,6 +837,7 @@
       if (!st.raf) st.raf = requestAnimationFrame(loop);
     };
   };
+  const rCarG = $('.ucar', rl), jCarG = $('.ucar--journey');
   const roadCar = makeCar($('.ucar', rl), $('.drive', rl));
   const journeyCar = makeCar($('.ucar--journey'), $('.journey__road .drive'));
 
@@ -870,6 +871,11 @@
     jDrive.style.strokeDashoffset = jLen * (1 - p);
     if (jLen) journeyCar(Math.max(.01, Math.min(.99, reduce ? Math.max(0, Math.min(1, (innerHeight * .6 - r.top) / r.height)) : p)));
     stops.forEach(s => { const sr = s.getBoundingClientRect(); s.classList.toggle('is-on', reduce || sr.top + sr.height / 2 < innerHeight * .62); });
+    // one car at a time: on desktop the side-line car hands over to the journey road while this section is in view
+    const desk = getComputedStyle(rl).display !== 'none';
+    const onRoad = r.top < innerHeight * .62 && r.bottom > innerHeight * .62;
+    rCarG.classList.toggle('is-away', desk && onRoad);
+    jCarG.classList.toggle('is-away', desk && !onRoad);
   };
 
   /* ---------- parallax (subtle) ---------- */

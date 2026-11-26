@@ -134,7 +134,7 @@ main{position:relative}
 .ucar.is-placed{opacity:1}
 .ucar__body{filter:drop-shadow(0 3px 3px rgba(0,0,0,.35))}
 .ucar--journey .ucar__body{transform:scale(1.35)}
-@media (min-width:1101px){.ucar--journey{display:none}}
+.ucar.is-away,.ucar.is-placed.is-away{opacity:0}
 @media (max-width:1100px){.roadline{display:none}}
 
 /* ==========================================================================
