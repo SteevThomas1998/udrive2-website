@@ -186,7 +186,7 @@ main{position:relative}
 .is-ready .hero em{--u:1}
 .is-ready .hero [data-enter]{opacity:1;transform:none;transition:opacity .8s var(--ease-out),transform .9s var(--ease-out),clip-path 1.2s var(--ease-out)}
 .js .hero [data-enter="up"]{transform:translateY(22px)}
-.is-ready .hero [data-enter="up"]{transition-delay:calc(var(--d,0) * 1s)}
+.is-ready .hero [data-enter="up"]{transform:none;transition-delay:calc(var(--d,0) * 1s)}
 .js .hero [data-enter="frame"]{clip-path:inset(12% 0 0 0 round 6px);opacity:1}
 .is-ready .hero [data-enter="frame"]{clip-path:inset(0 0 0 0 round 6px);transition-delay:.15s}
 .js .hero [data-enter="chip"]{transform:translate(-10px,16px)}
@@ -634,4 +634,4 @@ button.fchip-btn[aria-pressed="true"]{background:var(--ink);color:var(--paper);b
   .page-hero{padding:132px 0 48px}
   .page-hero__grid{grid-template-columns:1fr;gap:22px}
 }
-@media (max-width:920px){.hero .eyebrow{margin-bottom:30px!important}}
+@media (max-width:920px){.hero .eyebrow{margin-bottom:26px!important}}
